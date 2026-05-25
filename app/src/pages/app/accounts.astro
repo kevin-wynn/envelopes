@@ -1,0 +1,17 @@
+---
+import AccountsView from "../../components/AccountsView";
+import AppLayout from "../../layouts/AppLayout.astro";
+import "../../styles/global.css";
+---
+
+<AppLayout title="Accounts" activeNav="accounts">
+  <div class="p-6 lg:p-8">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-ink-900">Accounts</h1>
+      <p class="text-sm text-ink-500 mt-1">
+        Manage your bank accounts, credit cards, loans, and investments
+      </p>
+    </div>
+    <AccountsView client:load />
+  </div>
+</AppLayout>

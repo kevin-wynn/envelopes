@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-paper-100 text-ink-950;
+  }
+
+  * {
+    @apply border-paper-300;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-paper-50 rounded-xl border border-paper-300 shadow-sm;
+  }
+
+  .card-header {
+    @apply px-6 py-4 border-b border-paper-200;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700 focus:ring-brand-400 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply btn bg-paper-50 text-ink-800 border border-paper-400 hover:bg-paper-200 focus:ring-brand-400;
+  }
+
+  .btn-danger {
+    @apply btn bg-danger-500 text-white hover:bg-danger-600 focus:ring-danger-400;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-600 hover:bg-paper-200 hover:text-ink-900;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-paper-400 bg-paper-50 px-3.5 py-2.5 text-sm text-ink-900 placeholder:text-ink-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400/20 transition-colors;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-ink-700 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-success-50 text-success-600;
+  }
+
+  .badge-danger {
+    @apply badge bg-danger-50 text-danger-600;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning-50 text-warning-500;
+  }
+
+  .badge-info {
+    @apply badge bg-brand-50 text-brand-700;
+  }
+
+  .stat-card {
+    @apply card p-5;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium text-ink-500;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold text-ink-950 mt-1;
+  }
+
+  .progress-bar {
+    @apply w-full bg-paper-200 rounded-full h-2 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+  }
+
+  .table-container {
+    @apply overflow-x-auto;
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table thead th {
+    @apply px-4 py-3 text-left text-xs font-semibold text-ink-500 uppercase tracking-wider bg-paper-100/60 border-b border-paper-300;
+  }
+
+  .data-table tbody td {
+    @apply px-4 py-3.5 border-b border-paper-200;
+  }
+
+  .data-table tbody tr:hover {
+    @apply bg-paper-100/60;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-paper-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-paper-500;
+}
+
+/* Smooth transitions for interactive elements */
+.sidebar-link {
+  @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
+}
+
+/* Amount colors */
+.amount-positive {
+  @apply text-success-600 font-semibold;
+}
+
+.amount-negative {
+  @apply text-danger-600 font-semibold;
+}
+
+.amount-zero {
+  @apply text-ink-400;
+}

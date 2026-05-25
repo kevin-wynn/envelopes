@@ -1,0 +1,17 @@
+---
+import BudgetView from "../../components/BudgetView";
+import AppLayout from "../../layouts/AppLayout.astro";
+import "../../styles/global.css";
+---
+
+<AppLayout title="Budget" activeNav="budget">
+  <div class="p-6 lg:p-8">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-ink-900">Budget</h1>
+      <p class="text-sm text-ink-500 mt-1">
+        Give every dollar a job with envelope budgeting
+      </p>
+    </div>
+    <BudgetView client:load />
+  </div>
+</AppLayout>

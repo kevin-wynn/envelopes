@@ -1,0 +1,17 @@
+---
+import Dashboard from "../../components/Dashboard";
+import AppLayout from "../../layouts/AppLayout.astro";
+import "../../styles/global.css";
+---
+
+<AppLayout title="Dashboard" activeNav="dashboard">
+  <div class="p-6 lg:p-8">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-ink-900">Dashboard</h1>
+      <p class="text-sm text-ink-500 mt-1">
+        Your financial overview at a glance
+      </p>
+    </div>
+    <Dashboard client:load />
+  </div>
+</AppLayout>
