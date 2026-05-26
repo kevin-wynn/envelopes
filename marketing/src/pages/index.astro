@@ -168,7 +168,7 @@ import Layout from "../layouts/Layout.astro";
           </div>
 
           <!-- App shell -->
-          <div class="flex bg-[#F8FAFC]" style="min-height: 480px">
+          <div class="flex bg-[#F8FAFC] h-[480px]">
             <!-- Sidebar -->
             <div class="w-52 bg-[#0F172A] shrink-0 flex flex-col p-4">
               <div class="flex items-center gap-2.5 mb-8">
@@ -258,36 +258,6 @@ import Layout from "../layouts/Layout.astro";
                   >
                   <span class="text-xs text-slate-500">Transactions</span>
                 </div>
-                <div class="flex items-center gap-2.5 rounded-lg px-3 py-2">
-                  <svg
-                    class="w-4 h-4 text-slate-500 shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    ><path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
-                    ></path></svg
-                  >
-                  <span class="text-xs text-slate-500">Reports</span>
-                </div>
-                <div class="flex items-center gap-2.5 rounded-lg px-3 py-2">
-                  <svg
-                    class="w-4 h-4 text-slate-500 shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    ><path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
-                    ></path></svg
-                  >
-                  <span class="text-xs text-slate-500">Goals</span>
-                </div>
               </nav>
               <!-- Balance pill at bottom -->
               <div class="mt-4 bg-[#1E293B] rounded-lg p-3">
@@ -297,7 +267,7 @@ import Layout from "../layouts/Layout.astro";
             </div>
 
             <!-- Main content -->
-            <div class="flex-1 p-5 overflow-hidden">
+            <div class="flex-1 p-5 overflow-hidden relative">
               <div class="flex items-center justify-between mb-5">
                 <div>
                   <h1 class="text-sm font-bold text-gray-800">Dashboard</h1>
@@ -311,7 +281,7 @@ import Layout from "../layouts/Layout.astro";
               </div>
 
               <!-- Stat cards -->
-              <div class="grid grid-cols-4 gap-2.5 mb-4">
+              <div class="grid grid-cols-3 gap-2.5 mb-4">
                 <div
                   class="bg-white rounded-xl p-3 shadow-sm border border-gray-100"
                 >
@@ -393,742 +363,223 @@ import Layout from "../layouts/Layout.astro";
                     -$360 paid off
                   </p>
                 </div>
+              </div>
+
+              <!-- Accounts & Transactions row -->
+              <div class="grid grid-cols-2 gap-2.5 mb-2.5">
+                <!-- Accounts -->
                 <div
-                  class="bg-white rounded-xl p-3 shadow-sm border border-gray-100"
+                  class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
                 >
-                  <p
-                    class="text-[9px] text-gray-400 font-medium uppercase tracking-wide mb-1.5"
-                  >
-                    Saved This Month
-                  </p>
-                  <p class="text-base font-bold text-gray-900">$1,240</p>
-                  <p class="text-[9px] text-gray-400 mt-0.5">of $1,500 goal</p>
-                  <!-- mini progress bar -->
                   <div
-                    class="mt-1.5 h-1 bg-gray-100 rounded-full overflow-hidden"
+                    class="flex items-center justify-between px-4 py-2.5 border-b border-gray-50"
                   >
-                    <div
-                      class="h-full bg-emerald-400 rounded-full"
-                      style="width:82%"
-                    >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Charts row -->
-              <div class="grid grid-cols-5 gap-2.5 mb-2.5">
-                <!-- Donut chart — col-span-2 -->
-                <div
-                  class="col-span-2 bg-white rounded-xl p-4 shadow-sm border border-gray-100"
-                >
-                  <p class="text-[10px] font-semibold text-gray-700 mb-3">
-                    Spending by Category
-                  </p>
-                  <div class="flex items-center gap-3">
-                    <svg
-                      viewBox="0 0 120 120"
-                      width="90"
-                      height="90"
-                      class="shrink-0"
-                    >
-                      <!-- background track -->
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="45"
-                        fill="none"
-                        stroke="#f3f4f6"
-                        stroke-width="22"></circle>
-                      <!-- Housing 30% -->
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="45"
-                        fill="none"
-                        stroke="#16A34A"
-                        stroke-width="22"
-                        stroke-dasharray="84.8 197.9"
-                        stroke-dashoffset="0"
-                        transform="rotate(-90 60 60)"></circle>
-                      <!-- Groceries 20% -->
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="45"
-                        fill="none"
-                        stroke="#0EA5E9"
-                        stroke-width="22"
-                        stroke-dasharray="56.5 226.2"
-                        stroke-dashoffset="-84.8"
-                        transform="rotate(-90 60 60)"></circle>
-                      <!-- Transport 16% -->
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="45"
-                        fill="none"
-                        stroke="#F59E0B"
-                        stroke-width="22"
-                        stroke-dasharray="45.2 237.5"
-                        stroke-dashoffset="-141.3"
-                        transform="rotate(-90 60 60)"></circle>
-                      <!-- Dining 12% -->
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="45"
-                        fill="none"
-                        stroke="#F43F5E"
-                        stroke-width="22"
-                        stroke-dasharray="33.9 248.8"
-                        stroke-dashoffset="-186.5"
-                        transform="rotate(-90 60 60)"></circle>
-                      <!-- Other 22% -->
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="45"
-                        fill="none"
-                        stroke="#e5e7eb"
-                        stroke-width="22"
-                        stroke-dasharray="62.2 220.5"
-                        stroke-dashoffset="-220.4"
-                        transform="rotate(-90 60 60)"></circle>
-                      <!-- center label -->
-                      <text
-                        x="60"
-                        y="55"
-                        text-anchor="middle"
-                        font-size="11"
-                        font-weight="700"
-                        fill="#111827">$3,840</text
-                      >
-                      <text
-                        x="60"
-                        y="67"
-                        text-anchor="middle"
-                        font-size="7"
-                        fill="#9ca3af">spent</text
-                      >
-                    </svg>
-                    <div class="space-y-1.5 min-w-0">
-                      <div class="flex items-center gap-1.5">
-                        <div class="w-2 h-2 rounded-sm bg-[#16A34A] shrink-0">
-                        </div><span class="text-[10px] text-gray-600 truncate"
-                          >Housing <span class="text-gray-400">30%</span></span
-                        >
-                      </div>
-                      <div class="flex items-center gap-1.5">
-                        <div class="w-2 h-2 rounded-sm bg-[#0EA5E9] shrink-0">
-                        </div><span class="text-[10px] text-gray-600 truncate"
-                          >Groceries <span class="text-gray-400">20%</span
-                          ></span
-                        >
-                      </div>
-                      <div class="flex items-center gap-1.5">
-                        <div class="w-2 h-2 rounded-sm bg-[#F59E0B] shrink-0">
-                        </div><span class="text-[10px] text-gray-600 truncate"
-                          >Transport <span class="text-gray-400">16%</span
-                          ></span
-                        >
-                      </div>
-                      <div class="flex items-center gap-1.5">
-                        <div class="w-2 h-2 rounded-sm bg-[#F43F5E] shrink-0">
-                        </div><span class="text-[10px] text-gray-600 truncate"
-                          >Dining <span class="text-gray-400">12%</span></span
-                        >
-                      </div>
-                      <div class="flex items-center gap-1.5">
-                        <div class="w-2 h-2 rounded-sm bg-gray-200 shrink-0">
-                        </div><span class="text-[10px] text-gray-600 truncate"
-                          >Other <span class="text-gray-400">22%</span></span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bar chart — col-span-3 -->
-                <div
-                  class="col-span-3 bg-white rounded-xl p-4 shadow-sm border border-gray-100"
-                >
-                  <div class="flex items-center justify-between mb-3">
                     <p class="text-[10px] font-semibold text-gray-700">
-                      Income vs Expenses
+                      Accounts
                     </p>
-                    <div class="flex items-center gap-2">
-                      <div class="flex items-center gap-1">
-                        <div class="w-2 h-2 rounded-sm bg-emerald-400">
-                        </div><span class="text-[9px] text-gray-400"
-                          >Income</span
-                        >
+                    <p class="text-[9px] text-brand-600 font-medium">
+                      View all
+                    </p>
+                  </div>
+                  <div class="divide-y divide-gray-50">
+                    <div class="flex items-center justify-between px-4 py-2">
+                      <div>
+                        <p class="text-[10px] font-medium text-gray-700">
+                          Checking
+                        </p>
+                        <p class="text-[9px] text-gray-400">Chase Bank</p>
                       </div>
-                      <div class="flex items-center gap-1">
-                        <div class="w-2 h-2 rounded-sm bg-red-300"></div><span
-                          class="text-[9px] text-gray-400">Expenses</span
-                        >
+                      <p class="text-[10px] font-semibold text-emerald-600">
+                        $4,280.50
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between px-4 py-2">
+                      <div>
+                        <p class="text-[10px] font-medium text-gray-700">
+                          Savings
+                        </p>
+                        <p class="text-[9px] text-gray-400">Ally Bank</p>
                       </div>
+                      <p class="text-[10px] font-semibold text-emerald-600">
+                        $12,500.00
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between px-4 py-2">
+                      <div>
+                        <p class="text-[10px] font-medium text-gray-700">
+                          Credit Card
+                        </p>
+                        <p class="text-[9px] text-gray-400">Visa</p>
+                      </div>
+                      <p class="text-[10px] font-semibold text-red-500">
+                        -$1,340.00
+                      </p>
                     </div>
                   </div>
-                  <svg viewBox="0 0 280 90" width="100%" height="90">
-                    <!-- Y grid lines -->
-                    <line
-                      x1="0"
-                      y1="10"
-                      x2="280"
-                      y2="10"
-                      stroke="#f3f4f6"
-                      stroke-width="1"></line>
-                    <line
-                      x1="0"
-                      y1="35"
-                      x2="280"
-                      y2="35"
-                      stroke="#f3f4f6"
-                      stroke-width="1"></line>
-                    <line
-                      x1="0"
-                      y1="60"
-                      x2="280"
-                      y2="60"
-                      stroke="#f3f4f6"
-                      stroke-width="1"></line>
-                    <!-- Y labels -->
-                    <text x="0" y="9" font-size="6" fill="#d1d5db">6k</text>
-                    <text x="0" y="34" font-size="6" fill="#d1d5db">4k</text>
-                    <text x="0" y="59" font-size="6" fill="#d1d5db">2k</text>
-                    <!-- Jul -->
-                    <rect
-                      x="16"
-                      y="28"
-                      width="14"
-                      height="47"
-                      rx="2"
-                      fill="#34d399"></rect>
-                    <rect
-                      x="32"
-                      y="42"
-                      width="14"
-                      height="33"
-                      rx="2"
-                      fill="#fca5a5"></rect>
-                    <!-- Aug -->
-                    <rect
-                      x="60"
-                      y="22"
-                      width="14"
-                      height="53"
-                      rx="2"
-                      fill="#34d399"></rect>
-                    <rect
-                      x="76"
-                      y="38"
-                      width="14"
-                      height="37"
-                      rx="2"
-                      fill="#fca5a5"></rect>
-                    <!-- Sep -->
-                    <rect
-                      x="104"
-                      y="18"
-                      width="14"
-                      height="57"
-                      rx="2"
-                      fill="#34d399"></rect>
-                    <rect
-                      x="120"
-                      y="44"
-                      width="14"
-                      height="31"
-                      rx="2"
-                      fill="#fca5a5"></rect>
-                    <!-- Oct -->
-                    <rect
-                      x="148"
-                      y="25"
-                      width="14"
-                      height="50"
-                      rx="2"
-                      fill="#34d399"></rect>
-                    <rect
-                      x="164"
-                      y="40"
-                      width="14"
-                      height="35"
-                      rx="2"
-                      fill="#fca5a5"></rect>
-                    <!-- Nov -->
-                    <rect
-                      x="192"
-                      y="15"
-                      width="14"
-                      height="60"
-                      rx="2"
-                      fill="#34d399"></rect>
-                    <rect
-                      x="208"
-                      y="36"
-                      width="14"
-                      height="39"
-                      rx="2"
-                      fill="#fca5a5"></rect>
-                    <!-- Dec -->
-                    <rect
-                      x="236"
-                      y="10"
-                      width="14"
-                      height="65"
-                      rx="2"
-                      fill="#34d399"></rect>
-                    <rect
-                      x="252"
-                      y="32"
-                      width="14"
-                      height="43"
-                      rx="2"
-                      fill="#fca5a5"></rect>
-                    <!-- X labels -->
-                    <text
-                      x="23"
-                      y="86"
-                      font-size="6.5"
-                      fill="#9ca3af"
-                      text-anchor="middle">Jul</text
-                    >
-                    <text
-                      x="69"
-                      y="86"
-                      font-size="6.5"
-                      fill="#9ca3af"
-                      text-anchor="middle">Aug</text
-                    >
-                    <text
-                      x="113"
-                      y="86"
-                      font-size="6.5"
-                      fill="#9ca3af"
-                      text-anchor="middle">Sep</text
-                    >
-                    <text
-                      x="157"
-                      y="86"
-                      font-size="6.5"
-                      fill="#9ca3af"
-                      text-anchor="middle">Oct</text
-                    >
-                    <text
-                      x="201"
-                      y="86"
-                      font-size="6.5"
-                      fill="#9ca3af"
-                      text-anchor="middle">Nov</text
-                    >
-                    <text
-                      x="245"
-                      y="86"
-                      font-size="6.5"
-                      fill="#9ca3af"
-                      text-anchor="middle">Dec</text
-                    >
-                  </svg>
+                </div>
+
+                <!-- Recent transactions -->
+                <div
+                  class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
+                >
+                  <div
+                    class="flex items-center justify-between px-4 py-2.5 border-b border-gray-50"
+                  >
+                    <p class="text-[10px] font-semibold text-gray-700">
+                      Recent Transactions
+                    </p>
+                    <p class="text-[9px] text-brand-600 font-medium">
+                      View all
+                    </p>
+                  </div>
+                  <div class="divide-y divide-gray-50">
+                    <div class="flex items-center justify-between px-4 py-2">
+                      <div class="flex items-center gap-2.5">
+                        <div
+                          class="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center shrink-0"
+                        >
+                          <svg
+                            class="w-3 h-3 text-blue-400"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            ><path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                            ></path></svg
+                          >
+                        </div>
+                        <div>
+                          <p class="text-[10px] font-medium text-gray-700">
+                            Whole Foods Market
+                          </p><p class="text-[9px] text-gray-400">
+                            Groceries &middot; Dec 14
+                          </p>
+                        </div>
+                      </div>
+                      <p class="text-[10px] font-semibold text-red-500">
+                        -$87.43
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between px-4 py-2">
+                      <div class="flex items-center gap-2.5">
+                        <div
+                          class="w-6 h-6 bg-emerald-50 rounded-full flex items-center justify-center shrink-0"
+                        >
+                          <svg
+                            class="w-3 h-3 text-emerald-500"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            ><path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
+                            ></path></svg
+                          >
+                        </div>
+                        <div>
+                          <p class="text-[10px] font-medium text-gray-700">
+                            Direct Deposit — Salary
+                          </p><p class="text-[9px] text-gray-400">
+                            Income &middot; Dec 13
+                          </p>
+                        </div>
+                      </div>
+                      <p class="text-[10px] font-semibold text-emerald-500">
+                        +$4,200.00
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between px-4 py-2">
+                      <div class="flex items-center gap-2.5">
+                        <div
+                          class="w-6 h-6 bg-orange-50 rounded-full flex items-center justify-center shrink-0"
+                        >
+                          <svg
+                            class="w-3 h-3 text-orange-400"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            ><path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+                            ></path></svg
+                          >
+                        </div>
+                        <div>
+                          <p class="text-[10px] font-medium text-gray-700">
+                            Shell Gas Station
+                          </p><p class="text-[9px] text-gray-400">
+                            Transportation &middot; Dec 12
+                          </p>
+                        </div>
+                      </div>
+                      <p class="text-[10px] font-semibold text-red-500">
+                        -$62.18
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <!-- Recent transactions -->
+              <!-- Bottom fade -->
               <div
-                class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
+                class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-white z-10 pointer-events-none"
               >
-                <div
-                  class="flex items-center justify-between px-4 py-2.5 border-b border-gray-50"
-                >
-                  <p class="text-[10px] font-semibold text-gray-700">
-                    Recent Transactions
-                  </p>
-                  <p class="text-[9px] text-brand-600 font-medium">View all</p>
-                </div>
-                <div class="divide-y divide-gray-50">
-                  <div class="flex items-center justify-between px-4 py-2">
-                    <div class="flex items-center gap-2.5">
-                      <div
-                        class="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center shrink-0"
-                      >
-                        <svg
-                          class="w-3 h-3 text-blue-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          ><path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                          ></path></svg
-                        >
-                      </div>
-                      <div>
-                        <p class="text-[10px] font-medium text-gray-700">
-                          Whole Foods Market
-                        </p><p class="text-[9px] text-gray-400">
-                          Groceries &middot; Dec 14
-                        </p>
-                      </div>
-                    </div>
-                    <p class="text-[10px] font-semibold text-red-500">
-                      -$87.43
-                    </p>
-                  </div>
-                  <div class="flex items-center justify-between px-4 py-2">
-                    <div class="flex items-center gap-2.5">
-                      <div
-                        class="w-6 h-6 bg-emerald-50 rounded-full flex items-center justify-center shrink-0"
-                      >
-                        <svg
-                          class="w-3 h-3 text-emerald-500"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          ><path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
-                          ></path></svg
-                        >
-                      </div>
-                      <div>
-                        <p class="text-[10px] font-medium text-gray-700">
-                          Direct Deposit — Salary
-                        </p><p class="text-[9px] text-gray-400">
-                          Income &middot; Dec 13
-                        </p>
-                      </div>
-                    </div>
-                    <p class="text-[10px] font-semibold text-emerald-500">
-                      +$4,200.00
-                    </p>
-                  </div>
-                  <div class="flex items-center justify-between px-4 py-2">
-                    <div class="flex items-center gap-2.5">
-                      <div
-                        class="w-6 h-6 bg-orange-50 rounded-full flex items-center justify-center shrink-0"
-                      >
-                        <svg
-                          class="w-3 h-3 text-orange-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          ><path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
-                          ></path></svg
-                        >
-                      </div>
-                      <div>
-                        <p class="text-[10px] font-medium text-gray-700">
-                          Shell Gas Station
-                        </p><p class="text-[9px] text-gray-400">
-                          Transportation &middot; Dec 12
-                        </p>
-                      </div>
-                    </div>
-                    <p class="text-[10px] font-semibold text-red-500">
-                      -$62.18
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- Bottom fade -->
-        <div
-          class="h-28 bg-gradient-to-b from-transparent to-white relative -mt-14 z-10 pointer-events-none"
-        >
-        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Social proof strip -->
-  <section class="py-12 px-6 border-y border-gray-100">
-    <div class="max-w-5xl mx-auto grid grid-cols-3 gap-8 text-center">
-      <div>
-        <p class="text-2xl font-bold text-gray-900">$0</p>
-        <p class="text-sm text-gray-500 mt-1">Forever free, no subscriptions</p>
+    <!-- Social proof strip -->
+    <section class="py-12 px-6 border-y border-gray-100">
+      <div class="max-w-5xl mx-auto grid grid-cols-3 gap-8 text-center">
+        <div>
+          <p class="text-2xl font-bold text-gray-900">$0</p>
+          <p class="text-sm text-gray-500 mt-1">
+            Forever free, no subscriptions
+          </p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-gray-900">100%</p>
+          <p class="text-sm text-gray-500 mt-1">
+            Your data stays on your server
+          </p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-gray-900">60s</p>
+          <p class="text-sm text-gray-500 mt-1">Docker deploy in one command</p>
+        </div>
       </div>
-      <div>
-        <p class="text-2xl font-bold text-gray-900">100%</p>
-        <p class="text-sm text-gray-500 mt-1">Your data stays on your server</p>
-      </div>
-      <div>
-        <p class="text-2xl font-bold text-gray-900">60s</p>
-        <p class="text-sm text-gray-500 mt-1">Docker deploy in one command</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Features -->
-  <section id="features" class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="font-serif text-3xl font-bold text-gray-900 mb-3">
-          Everything you need to take control
-        </h2>
-        <p class="text-gray-500 max-w-lg mx-auto">
-          Inspired by the best of YNAB and Monarch, purpose-built for
-          self-hosting.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div
-          class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
-        >
-          <div
-            class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
-          >
-            <svg
-              class="w-5 h-5 text-brand-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 013 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 013 6v3"
-              ></path></svg
-            >
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-1.5">Envelope Budgeting</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Give every dollar a job. Assign income to categories, see what's
-            left, never overspend.
+    <!-- Features -->
+    <section id="features" class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="font-serif text-3xl font-bold text-gray-900 mb-3">
+            Everything you need to take control
+          </h2>
+          <p class="text-gray-500 max-w-lg mx-auto">
+            Inspired by the best of YNAB and Monarch, purpose-built for
+            self-hosting.
           </p>
         </div>
-        <div
-          class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
-        >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
+            class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
           >
-            <svg
-              class="w-5 h-5 text-brand-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
-              ></path></svg
-            >
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-1.5">Visual Reports</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Spending breakdowns, income vs. expenses, and net worth tracking
-            with interactive charts.
-          </p>
-        </div>
-        <div
-          class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
-        >
-          <div
-            class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
-          >
-            <svg
-              class="w-5 h-5 text-brand-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
-              ></path></svg
-            >
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-1.5">
-            Debt Payoff Planner
-          </h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Compare avalanche vs. snowball strategies. See exactly when you'll
-            be debt-free.
-          </p>
-        </div>
-        <div
-          class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
-        >
-          <div
-            class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
-          >
-            <svg
-              class="w-5 h-5 text-brand-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
-              ></path></svg
-            >
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-1.5">All Account Types</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Checking, savings, credit cards, mortgages, auto loans, investments,
-            CDs, retirement.
-          </p>
-        </div>
-        <div
-          class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
-        >
-          <div
-            class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
-          >
-            <svg
-              class="w-5 h-5 text-brand-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
-              ></path></svg
-            >
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-1.5">Goal Tracking</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Set savings targets, track progress with visual bars, and quick-add
-            contributions.
-          </p>
-        </div>
-        <div
-          class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
-        >
-          <div
-            class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
-          >
-            <svg
-              class="w-5 h-5 text-brand-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-              ></path></svg
-            >
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-1.5">Private by Default</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Runs on your hardware. No third-party access, no tracking, no ads.
-            SQLite you own.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section id="how-it-works" class="py-20 px-6 bg-gray-50">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="font-serif text-3xl font-bold text-gray-900 mb-3">
-          The envelope method, digitized
-        </h2>
-        <p class="text-gray-500">
-          A time-tested approach to stop living paycheck to paycheck.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div
-            class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-bold font-serif"
-          >
-            1
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Income arrives</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            When money comes in, it shows up as "Ready to Assign" — dollars
-            waiting for a purpose.
-          </p>
-        </div>
-        <div class="text-center">
-          <div
-            class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-bold font-serif"
-          >
-            2
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Assign to envelopes</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Distribute money into categories: rent, groceries, fun, savings.
-            Every dollar gets a job.
-          </p>
-        </div>
-        <div class="text-center">
-          <div
-            class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-bold font-serif"
-          >
-            3
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">
-            Spend with confidence
-          </h3>
-          <p class="text-sm text-gray-500 leading-relaxed">
-            Check your envelope before buying. When it's empty, stop — or move
-            money from another envelope.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why self-host -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <div
-        class="bg-gray-900 rounded-2xl p-10 md:p-14 relative overflow-hidden"
-      >
-        <div
-          class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl"
-        >
-        </div>
-        <div
-          class="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
-        >
-          <div>
-            <p
-              class="text-brand-400 text-xs font-semibold tracking-widest uppercase mb-4"
-            >
-              Why self-host?
-            </p>
-            <h2
-              class="font-serif text-3xl font-bold text-white mb-4 leading-snug"
-            >
-              Your finances are nobody's business but yours.
-            </h2>
-            <p class="text-gray-400 leading-relaxed">
-              Most budgeting apps want your bank credentials and charge monthly.
-              They profit from your data. With Envelopes, your data never leaves
-              your server.
-            </p>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
             <div
-              class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4"
+              class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
             >
               <svg
-                class="w-6 h-6 text-brand-400 mb-2"
+                class="w-5 h-5 text-brand-600"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -1136,17 +587,130 @@ import Layout from "../layouts/Layout.astro";
                 ><path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
+                  d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 013 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 013 6v3"
                 ></path></svg
               >
-              <p class="text-sm font-semibold text-white">Free forever</p>
-              <p class="text-xs text-gray-400 mt-0.5">No subscription fees</p>
             </div>
+            <h3 class="font-semibold text-gray-900 mb-1.5">
+              Envelope Budgeting
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Give every dollar a job. Assign income to categories, see what's
+              left, never overspend.
+            </p>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
+          >
             <div
-              class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4"
+              class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
             >
               <svg
-                class="w-6 h-6 text-brand-400 mb-2"
+                class="w-5 h-5 text-brand-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.5"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+                ></path></svg
+              >
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1.5">Simple Dashboard</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              See your net worth, assets, and liabilities at a glance with
+              recent transactions.
+            </p>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
+          >
+            <div
+              class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-5 h-5 text-brand-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.5"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+                ></path></svg
+              >
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1.5">
+              Transaction Tracking
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Log income and expenses with categories and payees. Filter, sort,
+              and search with ease.
+            </p>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
+          >
+            <div
+              class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-5 h-5 text-brand-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.5"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
+                ></path></svg
+              >
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1.5">
+              All Account Types
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Checking, savings, credit cards, mortgages, auto loans,
+              investments, CDs, retirement.
+            </p>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
+          >
+            <div
+              class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-5 h-5 text-brand-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.5"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                ></path></svg
+              >
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1.5">Category Budgets</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Organize spending into groups and categories. Assign money each
+              month and track what's left.
+            </p>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-300 hover:shadow-md transition-all"
+          >
+            <div
+              class="w-10 h-10 bg-brand-50 rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-5 h-5 text-brand-600"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -1157,82 +721,215 @@ import Layout from "../layouts/Layout.astro";
                   d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
                 ></path></svg
               >
-              <p class="text-sm font-semibold text-white">Fully private</p>
-              <p class="text-xs text-gray-400 mt-0.5">No data sharing</p>
             </div>
+            <h3 class="font-semibold text-gray-900 mb-1.5">
+              Private by Default
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Runs on your hardware. No third-party access, no tracking, no ads.
+              SQLite you own.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="py-20 px-6 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="font-serif text-3xl font-bold text-gray-900 mb-3">
+            The envelope method, digitized
+          </h2>
+          <p class="text-gray-500">
+            A time-tested approach to stop living paycheck to paycheck.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
             <div
-              class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4"
+              class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-bold font-serif"
             >
-              <svg
-                class="w-6 h-6 text-brand-400 mb-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="1.5"
-                ><path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008V18m-3 0h.008v.008h-.008V18m-3 0h.008v.008h-.008V18"
-                ></path></svg
-              >
-              <p class="text-sm font-semibold text-white">Your hardware</p>
-              <p class="text-xs text-gray-400 mt-0.5">NAS, VPS, or Pi</p>
+              1
             </div>
+            <h3 class="font-semibold text-gray-900 mb-2">Income arrives</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              When money comes in, it shows up as "Ready to Assign" — dollars
+              waiting for a purpose.
+            </p>
+          </div>
+          <div class="text-center">
             <div
-              class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4"
+              class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-bold font-serif"
             >
-              <svg
-                class="w-6 h-6 text-brand-400 mb-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="1.5"
-                ><path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-                ></path></svg
+              2
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">
+              Assign to envelopes
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Distribute money into categories: rent, groceries, fun, savings.
+              Every dollar gets a job.
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center mx-auto mb-4 text-lg font-bold font-serif"
+            >
+              3
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-2">
+              Spend with confidence
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Check your envelope before buying. When it's empty, stop — or move
+              money from another envelope.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why self-host -->
+    <section class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div
+          class="bg-gray-900 rounded-2xl p-10 md:p-14 relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl"
+          >
+          </div>
+          <div
+            class="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+          >
+            <div>
+              <p
+                class="text-brand-400 text-xs font-semibold tracking-widest uppercase mb-4"
               >
-              <p class="text-sm font-semibold text-white">Open source</p>
-              <p class="text-xs text-gray-400 mt-0.5">MIT licensed</p>
+                Why self-host?
+              </p>
+              <h2
+                class="font-serif text-3xl font-bold text-white mb-4 leading-snug"
+              >
+                Your finances are nobody's business but yours.
+              </h2>
+              <p class="text-gray-400 leading-relaxed">
+                Most budgeting apps want your bank credentials and charge
+                monthly. They profit from your data. With Envelopes, your data
+                never leaves your server.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div
+                class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4"
+              >
+                <svg
+                  class="w-6 h-6 text-brand-400 mb-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
+                  ></path></svg
+                >
+                <p class="text-sm font-semibold text-white">Free forever</p>
+                <p class="text-xs text-gray-400 mt-0.5">No subscription fees</p>
+              </div>
+              <div
+                class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4"
+              >
+                <svg
+                  class="w-6 h-6 text-brand-400 mb-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                  ></path></svg
+                >
+                <p class="text-sm font-semibold text-white">Fully private</p>
+                <p class="text-xs text-gray-400 mt-0.5">No data sharing</p>
+              </div>
+              <div
+                class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4"
+              >
+                <svg
+                  class="w-6 h-6 text-brand-400 mb-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008V18m-3 0h.008v.008h-.008V18m-3 0h.008v.008h-.008V18"
+                  ></path></svg
+                >
+                <p class="text-sm font-semibold text-white">Your hardware</p>
+                <p class="text-xs text-gray-400 mt-0.5">NAS, VPS, or Pi</p>
+              </div>
+              <div
+                class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4"
+              >
+                <svg
+                  class="w-6 h-6 text-brand-400 mb-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+                  ></path></svg
+                >
+                <p class="text-sm font-semibold text-white">Open source</p>
+                <p class="text-xs text-gray-400 mt-0.5">MIT licensed</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Install -->
-  <section id="install" class="py-20 px-6 bg-gray-950">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <p
-          class="text-brand-400 text-xs font-semibold tracking-widest uppercase mb-3"
-        >
-          Getting started
-        </p>
-        <h2 class="font-serif text-3xl font-bold text-white mb-2">
-          Up and running in 60 seconds
-        </h2>
-        <p class="text-gray-500">All you need is Docker.</p>
-      </div>
-      <div class="space-y-6">
-        <div>
-          <h3
-            class="text-gray-300 font-medium text-sm mb-2 flex items-center gap-2"
+    <!-- Install -->
+    <section id="install" class="py-20 px-6 bg-gray-950">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <p
+            class="text-brand-400 text-xs font-semibold tracking-widest uppercase mb-3"
           >
-            <span
-              class="w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center text-[10px] text-white font-bold"
-              >1</span
+            Getting started
+          </p>
+          <h2 class="font-serif text-3xl font-bold text-white mb-2">
+            Up and running in 60 seconds
+          </h2>
+          <p class="text-gray-500">All you need is Docker.</p>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h3
+              class="text-gray-300 font-medium text-sm mb-2 flex items-center gap-2"
             >
-            Create a <code class="font-mono text-brand-400"
-              >docker-compose.yml</code
+              <span
+                class="w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center text-[10px] text-white font-bold"
+                >1</span
+              >
+              Create a <code class="font-mono text-brand-400"
+                >docker-compose.yml</code
+              >
+            </h3>
+            <div
+              class="bg-gray-900 border border-gray-800 rounded-lg p-5 font-mono text-sm text-gray-400 overflow-x-auto"
             >
-          </h3>
-          <div
-            class="bg-gray-900 border border-gray-800 rounded-lg p-5 font-mono text-sm text-gray-400 overflow-x-auto"
-          >
-            <pre><code>services:
+              <pre><code>services:
   envelopes:
     image: lukevinskywynn/envelopes:latest
     container_name: envelopes
@@ -1248,183 +945,185 @@ import Layout from "../layouts/Layout.astro";
 
 volumes:
   envelopes_data:</code></pre>
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-gray-300 font-medium text-sm mb-2 flex items-center gap-2"
+            >
+              <span
+                class="w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center text-[10px] text-white font-bold"
+                >2</span
+              >
+              Start the container
+            </h3>
+            <div
+              class="bg-gray-900 border border-gray-800 rounded-lg px-5 py-3.5 font-mono text-sm text-gray-400"
+            >
+              <code>docker compose up -d</code>
+            </div>
+          </div>
+          <div>
+            <h3
+              class="text-gray-300 font-medium text-sm mb-2 flex items-center gap-2"
+            >
+              <span
+                class="w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center text-[10px] text-white font-bold"
+                >3</span
+              >
+              Open your browser
+            </h3>
+            <div
+              class="bg-gray-900 border border-gray-800 rounded-lg px-5 py-3.5 font-mono text-sm text-gray-400"
+            >
+              <code>http://your-server:4321</code>
+            </div>
           </div>
         </div>
-        <div>
-          <h3
-            class="text-gray-300 font-medium text-sm mb-2 flex items-center gap-2"
-          >
-            <span
-              class="w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center text-[10px] text-white font-bold"
-              >2</span
+        <div class="mt-10 pt-8 border-t border-gray-800">
+          <details class="group">
+            <summary
+              class="text-gray-400 font-medium text-sm cursor-pointer hover:text-white transition-colors flex items-center gap-2"
             >
-            Start the container
-          </h3>
-          <div
-            class="bg-gray-900 border border-gray-800 rounded-lg px-5 py-3.5 font-mono text-sm text-gray-400"
-          >
-            <code>docker compose up -d</code>
-          </div>
-        </div>
-        <div>
-          <h3
-            class="text-gray-300 font-medium text-sm mb-2 flex items-center gap-2"
-          >
-            <span
-              class="w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center text-[10px] text-white font-bold"
-              >3</span
+              <svg
+                class="w-4 h-4 group-open:rotate-90 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg
+              >
+              Build from source
+            </summary>
+            <div
+              class="mt-3 bg-gray-900 border border-gray-800 rounded-lg p-5 font-mono text-sm text-gray-400 overflow-x-auto"
             >
-            Open your browser
-          </h3>
-          <div
-            class="bg-gray-900 border border-gray-800 rounded-lg px-5 py-3.5 font-mono text-sm text-gray-400"
-          >
-            <code>http://your-server:4321</code>
-          </div>
-        </div>
-      </div>
-      <div class="mt-10 pt-8 border-t border-gray-800">
-        <details class="group">
-          <summary
-            class="text-gray-400 font-medium text-sm cursor-pointer hover:text-white transition-colors flex items-center gap-2"
-          >
-            <svg
-              class="w-4 h-4 group-open:rotate-90 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg
-            >
-            Build from source
-          </summary>
-          <div
-            class="mt-3 bg-gray-900 border border-gray-800 rounded-lg p-5 font-mono text-sm text-gray-400 overflow-x-auto"
-          >
-            <pre><code>git clone https://github.com/kevin-wynn/envelopes.git
+              <pre><code>git clone https://github.com/kevin-wynn/envelopes.git
 cd envelopes/app
 cp .env.example .env    # Edit with your settings
 docker compose up -d --build</code></pre>
-          </div>
-        </details>
-        <details class="group mt-3">
-          <summary
-            class="text-gray-400 font-medium text-sm cursor-pointer hover:text-white transition-colors flex items-center gap-2"
-          >
-            <svg
-              class="w-4 h-4 group-open:rotate-90 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg
+            </div>
+          </details>
+          <details class="group mt-3">
+            <summary
+              class="text-gray-400 font-medium text-sm cursor-pointer hover:text-white transition-colors flex items-center gap-2"
             >
-            Environment variables
-          </summary>
-          <div
-            class="mt-3 bg-gray-900 border border-gray-800 rounded-lg overflow-hidden"
-          >
-            <table class="w-full text-sm">
-              <thead
-                ><tr class="border-b border-gray-800"
-                  ><th
-                    class="text-left text-gray-500 font-medium px-5 py-2.5 text-xs"
-                    >Variable</th
-                  ><th
-                    class="text-left text-gray-500 font-medium px-5 py-2.5 text-xs"
-                    >Default</th
-                  ><th
-                    class="text-left text-gray-500 font-medium px-5 py-2.5 text-xs"
-                    >Description</th
-                  ></tr
-                ></thead
+              <svg
+                class="w-4 h-4 group-open:rotate-90 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg
               >
-              <tbody class="text-gray-400">
-                <tr class="border-b border-gray-800/50"
-                  ><td class="px-5 py-2 font-mono text-brand-400 text-xs"
-                    >JWT_SECRET</td
-                  ><td class="px-5 py-2 text-gray-600">&mdash;</td><td
-                    class="px-5 py-2 text-xs"
-                    >Auth token signing secret (required)</td
-                  ></tr
-                >
-                <tr class="border-b border-gray-800/50"
-                  ><td class="px-5 py-2 font-mono text-brand-400 text-xs"
-                    >ENVELOPES_USERNAME</td
-                  ><td class="px-5 py-2 text-gray-600">admin</td><td
-                    class="px-5 py-2 text-xs">Login username</td
-                  ></tr
-                >
-                <tr class="border-b border-gray-800/50"
-                  ><td class="px-5 py-2 font-mono text-brand-400 text-xs"
-                    >ENVELOPES_PASSWORD</td
-                  ><td class="px-5 py-2 text-gray-600">changeme</td><td
-                    class="px-5 py-2 text-xs">Login password (bcrypt hashed)</td
-                  ></tr
-                >
-                <tr
-                  ><td class="px-5 py-2 font-mono text-brand-400 text-xs"
-                    >DATABASE_URL</td
-                  ><td class="px-5 py-2 text-gray-600"
-                    >/app/data/envelopes.db</td
-                  ><td class="px-5 py-2 text-xs">SQLite database path</td></tr
-                >
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-10 px-6 border-t border-gray-200">
-    <div class="max-w-5xl mx-auto">
-      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-        <div class="flex items-center gap-2">
-          <div
-            class="w-6 h-6 bg-gray-900 rounded-md flex items-center justify-center"
-          >
-            <svg
-              class="w-3.5 h-3.5 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
-              ></path></svg
+              Environment variables
+            </summary>
+            <div
+              class="mt-3 bg-gray-900 border border-gray-800 rounded-lg overflow-hidden"
             >
+              <table class="w-full text-sm">
+                <thead
+                  ><tr class="border-b border-gray-800"
+                    ><th
+                      class="text-left text-gray-500 font-medium px-5 py-2.5 text-xs"
+                      >Variable</th
+                    ><th
+                      class="text-left text-gray-500 font-medium px-5 py-2.5 text-xs"
+                      >Default</th
+                    ><th
+                      class="text-left text-gray-500 font-medium px-5 py-2.5 text-xs"
+                      >Description</th
+                    ></tr
+                  ></thead
+                >
+                <tbody class="text-gray-400">
+                  <tr class="border-b border-gray-800/50"
+                    ><td class="px-5 py-2 font-mono text-brand-400 text-xs"
+                      >JWT_SECRET</td
+                    ><td class="px-5 py-2 text-gray-600">&mdash;</td><td
+                      class="px-5 py-2 text-xs"
+                      >Auth token signing secret (required)</td
+                    ></tr
+                  >
+                  <tr class="border-b border-gray-800/50"
+                    ><td class="px-5 py-2 font-mono text-brand-400 text-xs"
+                      >ENVELOPES_USERNAME</td
+                    ><td class="px-5 py-2 text-gray-600">admin</td><td
+                      class="px-5 py-2 text-xs">Login username</td
+                    ></tr
+                  >
+                  <tr class="border-b border-gray-800/50"
+                    ><td class="px-5 py-2 font-mono text-brand-400 text-xs"
+                      >ENVELOPES_PASSWORD</td
+                    ><td class="px-5 py-2 text-gray-600">changeme</td><td
+                      class="px-5 py-2 text-xs"
+                      >Login password (bcrypt hashed)</td
+                    ></tr
+                  >
+                  <tr
+                    ><td class="px-5 py-2 font-mono text-brand-400 text-xs"
+                      >DATABASE_URL</td
+                    ><td class="px-5 py-2 text-gray-600"
+                      >/app/data/envelopes.db</td
+                    ><td class="px-5 py-2 text-xs">SQLite database path</td></tr
+                  >
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 border-t border-gray-200">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div class="flex items-center gap-2">
+            <div
+              class="w-6 h-6 bg-gray-900 rounded-md flex items-center justify-center"
+            >
+              <svg
+                class="w-3.5 h-3.5 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
+                ></path></svg
+              >
+            </div>
+            <span class="font-serif font-bold text-gray-900">Envelopes</span>
           </div>
-          <span class="font-serif font-bold text-gray-900">Envelopes</span>
+          <div class="flex items-center gap-6 text-sm text-gray-400">
+            <span>Astro</span><span>&middot;</span><span>React</span><span
+              >&middot;</span
+            ><span>Tailwind</span><span>&middot;</span><span>SQLite</span><span
+              >&middot;</span
+            ><span>Docker</span>
+          </div>
         </div>
-        <div class="flex items-center gap-6 text-sm text-gray-400">
-          <span>Astro</span><span>&middot;</span><span>React</span><span
-            >&middot;</span
-          ><span>Tailwind</span><span>&middot;</span><span>SQLite</span><span
-            >&middot;</span
-          ><span>Docker</span>
-        </div>
-      </div>
-      <div
-        class="flex items-center justify-between text-xs text-gray-400 pt-4 border-t border-gray-100"
-      >
-        <p>Open source under MIT License</p>
-        <a
-          href="https://github.com/kevin-wynn/envelopes"
-          target="_blank"
-          class="hover:text-gray-700 transition-colors"
-          >github.com/kevin-wynn/envelopes</a
+        <div
+          class="flex items-center justify-between text-xs text-gray-400 pt-4 border-t border-gray-100"
         >
+          <p>Open source under MIT License</p>
+          <a
+            href="https://github.com/kevin-wynn/envelopes"
+            target="_blank"
+            class="hover:text-gray-700 transition-colors"
+            >github.com/kevin-wynn/envelopes</a
+          >
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </section>
 </Layout>
